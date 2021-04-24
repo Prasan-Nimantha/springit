@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
-@EnableJpaAuditing
 @EnableConfigurationProperties(SpringitProperties.class)
 public class SpringitApplication {
 	private static final Logger logger = LoggerFactory.getLogger(SpringitApplication.class);
