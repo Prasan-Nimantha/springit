@@ -1,4 +1,4 @@
-package com.prashan.springit.models;
+package com.prashan.springit.model;
 
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;

@@ -19,7 +19,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    public void configure(HttpSecurity httpSecurity) throws Exception {
+    protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
                     .authorizeRequests()
                             .requestMatchers(EndpointRequest.to("info")).permitAll()
@@ -30,9 +30,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                             .antMatchers("/h2-console/**").permitAll()
                     .and()
                     .formLogin()
+                            .loginPage("/login").permitAll()
+                            .usernameParameter("email")
                     .and()
-                            .csrf().disable()
-                            .headers().frameOptions().disable();
+                            .logout()
+                    .and()
+                           .csrf().disable()
+                           .headers().frameOptions().disable();
     }
 
     @Override

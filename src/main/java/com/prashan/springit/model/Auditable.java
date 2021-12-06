@@ -1,4 +1,4 @@
-package com.prashan.springit.models;
+package com.prashan.springit.model;
 
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;

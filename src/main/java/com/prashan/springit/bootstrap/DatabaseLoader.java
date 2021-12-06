@@ -1,12 +1,12 @@
 package com.prashan.springit.bootstrap;
 
-import com.prashan.springit.models.Link;
-import com.prashan.springit.models.Role;
-import com.prashan.springit.models.User;
-import com.prashan.springit.repositories.CommentRepository;
-import com.prashan.springit.repositories.LinkRepository;
-import com.prashan.springit.repositories.RoleRepository;
-import com.prashan.springit.repositories.UserRepository;
+import com.prashan.springit.model.Link;
+import com.prashan.springit.model.Role;
+import com.prashan.springit.model.User;
+import com.prashan.springit.repository.CommentRepository;
+import com.prashan.springit.repository.LinkRepository;
+import com.prashan.springit.repository.RoleRepository;
+import com.prashan.springit.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

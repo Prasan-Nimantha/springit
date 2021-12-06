@@ -1,7 +1,7 @@
 package com.prashan.springit.security;
 
-import com.prashan.springit.models.User;
-import com.prashan.springit.repositories.UserRepository;
+import com.prashan.springit.model.User;
+import com.prashan.springit.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -22,7 +22,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         Optional<User> user = userRepository.findByEmail(email);
-        if (!user.isPresent()){
+        if (!user.isPresent()) {
             throw new UsernameNotFoundException(email);
         }
         return user.get();

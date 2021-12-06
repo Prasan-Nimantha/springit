@@ -1,6 +1,6 @@
-package com.prashan.springit.models;
+package com.prashan.springit.model;
 
-import com.prashan.springit.services.BeanUtil;
+import com.prashan.springit.service.BeanUtil;
 import lombok.*;
 import org.hibernate.validator.constraints.URL;
 import org.ocpsoft.prettytime.PrettyTime;

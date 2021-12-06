@@ -1,6 +1,6 @@
 package com.prashan.springit.config;
 
-import com.prashan.springit.models.User;
+import com.prashan.springit.model.User;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.security.core.context.SecurityContextHolder;
 

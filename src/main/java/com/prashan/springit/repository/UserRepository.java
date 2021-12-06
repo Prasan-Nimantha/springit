@@ -1,6 +1,6 @@
-package com.prashan.springit.repositories;
+package com.prashan.springit.repository;
 
-import com.prashan.springit.models.User;
+import com.prashan.springit.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
