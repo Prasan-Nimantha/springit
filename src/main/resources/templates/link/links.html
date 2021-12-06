@@ -28,7 +28,7 @@ Clone')}">
                 </p>
                 <p class="tagline ">submitted
                     <time th:title="${link.getCreationDate()}" th:datetime="${link.getCreationDate()}" class="live-timestamp" th:text="${link.getPrettyTime()}">2 hours ago</time> by
-                    <a href="/" class="author">prashann</a>
+                    <a href="/" class="author" th:text="${link.createdBy}">prashann</a>
                 </p>
                 <p>
                     <a class="comments" th:href="@{'/link/' + ${link.id} + '#comments'}" th:text="|${link.getComments().size()} comments|" ><i class="fas fa-comments"></i> 8 comments</a>
