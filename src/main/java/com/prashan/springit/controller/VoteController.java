@@ -25,7 +25,7 @@ public class VoteController {
     }
 
     //http://localhost:8080/vote/link/1/direction/-1/votecount/5
-    @Secured("ROLE_USER")
+    @Secured({"ROLE_USER"})
     @GetMapping("/vote/link/{linkId}/direction/{direction}/votecount/{voteCount}")
     public int vote(@PathVariable Long linkId, @PathVariable short direction, @PathVariable int voteCount) {
         Optional<Link> optionalLink = linkRepository.findById(linkId);

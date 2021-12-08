@@ -21,7 +21,7 @@ import java.util.List;
 @Entity
 @RequiredArgsConstructor
 @NoArgsConstructor
-@Getter @Setter @ToString
+@Getter @Setter
 public class Link extends Auditable {
     @Id
     @GeneratedValue
