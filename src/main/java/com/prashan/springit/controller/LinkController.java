@@ -1,13 +1,18 @@
 package com.prashan.springit.controller;
 
+import com.prashan.springit.config.AuditorAwareImpl;
 import com.prashan.springit.model.Comment;
 import com.prashan.springit.model.Link;
+import com.prashan.springit.model.User;
+import com.prashan.springit.service.BeanUtil;
 import com.prashan.springit.service.CommentService;
 import com.prashan.springit.service.LinkService;
+import com.prashan.springit.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -23,11 +28,13 @@ public class LinkController {
 
     private LinkService linkService;
     private CommentService commentService;
+    private UserService userService;
 
     @Autowired
-    public LinkController(LinkService linkService, CommentService commentService) {
+    public LinkController(LinkService linkService, CommentService commentService, UserService userService) {
         this.linkService = linkService;
         this.commentService = commentService;
+        this.userService = userService;
     }
 
     // listing all links
@@ -58,8 +65,8 @@ public class LinkController {
 
     @GetMapping("/link/submit")
     public String newLinkForm(Model model) {
-       model.addAttribute("link", new Link());
-       return "link/submit";
+        model.addAttribute("link", new Link());
+        return "link/submit";
     }
 
     @PostMapping("/link/submit")
@@ -69,6 +76,8 @@ public class LinkController {
             model.addAttribute("link", link);
             return "link/submit";
         } else {
+            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            link.setUser(user);
             linkService.save(link);
             logger.info("New link was saved successfully");
             redirectAttributes
